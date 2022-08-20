@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/hand.png" type="Texture" id=1]
+[ext_resource path="res://level.gd" type="Script" id=2]
+
+[node name="level" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="pointContainer" type="Node2D" parent="."]
+
+[node name="point" type="Node2D" parent="pointContainer"]
+
+[node name="point2" type="Node2D" parent="pointContainer"]
+
+[node name="point3" type="Node2D" parent="pointContainer"]
+
+[node name="point4" type="Node2D" parent="pointContainer"]
+
+[node name="point5" type="Node2D" parent="pointContainer"]
+
+[node name="point6" type="Node2D" parent="pointContainer"]
+
+[node name="point7" type="Node2D" parent="pointContainer"]
+
+[node name="point8" type="Node2D" parent="pointContainer"]
+
+[node name="point9" type="Node2D" parent="pointContainer"]
+
+[node name="point10" type="Node2D" parent="pointContainer"]
+
+[node name="point11" type="Node2D" parent="pointContainer"]
+
+[node name="point12" type="Node2D" parent="pointContainer"]
+
+[node name="point13" type="Node2D" parent="pointContainer"]
+
+[node name="point14" type="Node2D" parent="pointContainer"]
+
+[node name="point15" type="Node2D" parent="pointContainer"]
+
+[node name="point16" type="Node2D" parent="pointContainer"]
+
+[node name="point17" type="Node2D" parent="pointContainer"]
+
+[node name="point18" type="Node2D" parent="pointContainer"]
+
+[node name="point19" type="Node2D" parent="pointContainer"]
+
+[node name="point20" type="Node2D" parent="pointContainer"]
+
+[node name="point21" type="Node2D" parent="pointContainer"]
+
+[node name="point22" type="Node2D" parent="pointContainer"]
+
+[node name="point23" type="Node2D" parent="pointContainer"]
+
+[node name="point24" type="Node2D" parent="pointContainer"]
+
+[node name="point25" type="Node2D" parent="pointContainer"]
+
+[node name="point26" type="Node2D" parent="pointContainer"]
+
+[node name="point27" type="Node2D" parent="pointContainer"]
+
+[node name="point28" type="Node2D" parent="pointContainer"]
+
+[node name="point29" type="Node2D" parent="pointContainer"]
+
+[node name="point30" type="Node2D" parent="pointContainer"]
+
+[node name="point31" type="Node2D" parent="pointContainer"]
+
+[node name="point32" type="Node2D" parent="pointContainer"]
+
+[node name="point33" type="Node2D" parent="pointContainer"]
+
+[node name="point34" type="Node2D" parent="pointContainer"]
+
+[node name="point35" type="Node2D" parent="pointContainer"]
+
+[node name="point36" type="Node2D" parent="pointContainer"]
+
+[node name="point37" type="Node2D" parent="pointContainer"]
+
+[node name="point38" type="Node2D" parent="pointContainer"]
+
+[node name="point39" type="Node2D" parent="pointContainer"]
+
+[node name="point40" type="Node2D" parent="pointContainer"]
+
+[node name="point41" type="Node2D" parent="pointContainer"]
+
+[node name="point42" type="Node2D" parent="pointContainer"]
+
+[node name="point43" type="Node2D" parent="pointContainer"]
+
+[node name="point44" type="Node2D" parent="pointContainer"]
+
+[node name="point45" type="Node2D" parent="pointContainer"]
+
+[node name="point46" type="Node2D" parent="pointContainer"]
+
+[node name="point47" type="Node2D" parent="pointContainer"]
+
+[node name="point48" type="Node2D" parent="pointContainer"]
+
+[node name="point49" type="Node2D" parent="pointContainer"]
+
+[node name="point50" type="Node2D" parent="pointContainer"]
+
+[node name="Sprite" type="Sprite" parent="pointContainer/point50"]
+position = Vector2( 50, 6 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
