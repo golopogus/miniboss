@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Character Voices_Denty (Fixed).mp3-2a9983dc4be671e7f248e3d0dc8c21f9.mp3str"
+
+[deps]
+
+source_file="res://sounds/Character Voices_Denty (Fixed).mp3"
+dest_files=[ "res://.import/Character Voices_Denty (Fixed).mp3-2a9983dc4be671e7f248e3d0dc8c21f9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

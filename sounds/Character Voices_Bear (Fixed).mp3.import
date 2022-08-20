@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Character Voices_Bear (Fixed).mp3-28031d1210f198a5a0b3d9a6819978e6.mp3str"
+
+[deps]
+
+source_file="res://sounds/Character Voices_Bear (Fixed).mp3"
+dest_files=[ "res://.import/Character Voices_Bear (Fixed).mp3-28031d1210f198a5a0b3d9a6819978e6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

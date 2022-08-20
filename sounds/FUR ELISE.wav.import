@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FUR ELISE.wav-0dc8427ee55b74b9589efedb4324c7f4.sample"
+
+[deps]
+
+source_file="res://sounds/FUR ELISE.wav"
+dest_files=[ "res://.import/FUR ELISE.wav-0dc8427ee55b74b9589efedb4324c7f4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
