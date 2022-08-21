@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Character Voices_HUSKKORN.mp3-9c506d3165f72f5cebb424
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

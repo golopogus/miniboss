@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Character Voices_FSwimmiy (Fixed).mp3-484c6667d63c46
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Character Voices_Bear (Fixed).mp3-28031d1210f198a5a0
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

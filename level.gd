@@ -1,7 +1,7 @@
 extends Node2D
 
 var zoomLoc = Vector2(-1000,-1000)
-
+var zoomOnEnemy = false
 var distance = 25
 var zoom = false
 var mouseMove = true
@@ -27,12 +27,30 @@ func _process(delta):
 		$Sprite2.show()
 		$steam.emitting = true
 		burn = true
+		if $burn.playing == false:
+			$burn.play()
+		
+		if zoom == true:
+			var anim: Animation = $AnimationPlayer.get_animation('zoomOut')
+			var key_id: int = anim.track_find_key(0,0)
+			if zoomOnEnemy == true:
+				anim.track_set_key_value(0, key_id, zoomLoc)
+			else:
+				anim.track_set_key_value(0, key_id, get_global_mouse_position())
+			$AnimationPlayer.play("zoomOut")
+			zoom = false
+			zoomOnEnemy = false
+#			for child in get_node("enemyContainer").get_children():
+#				if child.position == zoomLoc:
+#					child.reset_pos()
 		#$enemy.change_state()
 	elif Input.is_action_just_released("burn"):
 		$Sprite.show()
 		$Sprite2.hide()
 		$steam.emitting = false
 		burn = false
+		$burn.stop()
+		
 		
 	if $AnimationPlayer.is_playing():
 		mouseMove = false
@@ -76,6 +94,29 @@ func _process(delta):
 						pp[pointi].position += Vector2((distance - length)*cos(angle),(distance - length)*sin(angle))
 		
 		update()	
+		if zoom == false and Globals.get_children()[0].playing == false:
+			Globals.stop_boss()
+			Globals.play_calm(Globals.calm_position)
+			
+			if Globals.get_children()[1].playing == true:
+				Globals.stop_corn()
+			elif Globals.get_children()[2].playing == true:
+				Globals.stop_fish()
+			elif Globals.get_children()[3].playing == true:
+				Globals.stop_bear()
+			if (Globals.corn_position != 0 or Globals.fish_position != 0 or Globals.bear_position != 0) and Globals.get_children()[5].playing == false:
+				Globals.play_squeak()
+			
+		elif zoom == true:
+			Globals.stop_calm()
+			Globals.stop_squeak()
+			if zoomLoc != Vector2(-1000,-1000) and Globals.voice_playing == false:
+				find_enemy(zoomLoc)
+			if Globals.get_children()[4].playing == false and zoomOnEnemy == true:
+				Globals.play_boss()
+				
+	if Input.is_action_just_pressed("zoom"):
+		$out.play()
 	## Draw the Arm
 func _draw():
 	var pp = $pointContainer.get_children()
@@ -90,11 +131,11 @@ func _draw():
 func _unhandled_input(event):
 		if Input.is_action_just_pressed("zoom"):
 			#var posDiff = sqrt(pow(get_global_mouse_position().x - MovePos.x,2) + pow(get_global_mouse_position.y - MovePos.y,2))
-			var zoomOnEnemy = false
+			
 			if zoomLoc != Vector2(-1000,-1000):
 				zoomOnEnemy = true
 				
-			
+			print(zoom)
 			if zoom == false:
 				#Globals.stop_calm()
 				var anim: Animation = $AnimationPlayer.get_animation('zoom')
@@ -104,6 +145,10 @@ func _unhandled_input(event):
 				else:
 					anim.track_set_key_value(1, key_id, get_global_mouse_position())
 				$AnimationPlayer.play("zoom")
+				#$in.play()
+				#Globals.stop_calm()
+				
+				
 				
 			elif zoom == true:
 				#Globals.play_calm(Globals.calm_position)
@@ -114,6 +159,9 @@ func _unhandled_input(event):
 				else:
 					anim.track_set_key_value(0, key_id, get_global_mouse_position())
 				$AnimationPlayer.play("zoomOut")
+				#$out.play()
+				zoomOnEnemy = false
+				#Globals.play_calm(Globals.calm_position)
 				#if $AnimationPlayer.is_playing() == false:
 					
 			if zoom == false:
@@ -142,13 +190,13 @@ func _on_spawner_timeout():
 		var num = enemies[num2]
 		if num == 1:
 			var enemy = ENEMY.instance()
-			add_child(enemy)
+			$enemyContainer.add_child(enemy)
 		elif num == 2:
 			var enemy = ENEMY2.instance()
-			add_child(enemy)
+			$enemyContainer.add_child(enemy)
 		elif num == 3:
 			var enemy = ENEMY3.instance()
-			add_child(enemy)
+			$enemyContainer.add_child(enemy)
 		enemies.erase(num)
 	
 func spawnAsh(pos,num):
@@ -164,15 +212,24 @@ func _on_first_timeout():
 	var num = randi() % 3
 	if num == 1:
 		var enemy = ENEMY.instance()
-		add_child(enemy)
+		$enemyContainer.add_child(enemy)
 	elif num == 2:
 		var enemy = ENEMY2.instance()
-		add_child(enemy)
+		$enemyContainer.add_child(enemy)
 	elif num == 3:
 		var enemy = ENEMY3.instance()
-		add_child(enemy)
+		$enemyContainer.add_child(enemy)
 	enemies.erase(num)
 	$first.stop()
 	
-	
+func find_enemy(pos):
+	for child in $enemyContainer.get_children():
+		if child.position == pos:
+			if child.name == 'enemy':
+				Globals.play_fish(Globals.fish_position)
+			elif child.name == 'enemy2':
+				Globals.play_corn(Globals.corn_position)
+			elif child.name == 'enemy3':
+				Globals.play_bear(Globals.bear_position)
+			
 	

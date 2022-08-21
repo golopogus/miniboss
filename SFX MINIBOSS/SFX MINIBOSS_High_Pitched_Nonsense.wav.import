@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX MINIBOSS_High_Pitched_Nonsense.wav-fa7c64560f9ec237b63c3daedb39c4a6.sample"
+
+[deps]
+
+source_file="res://SFX MINIBOSS/SFX MINIBOSS_High_Pitched_Nonsense.wav"
+dest_files=[ "res://.import/SFX MINIBOSS_High_Pitched_Nonsense.wav-fa7c64560f9ec237b63c3daedb39c4a6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -23,6 +23,7 @@ var enemies = ['bearly','fishy','huskorn']
 
 
 func _ready():
+	$AnimationPlayer.play("ready")
 	randomize()
 	#var sprite_choice = randi() % 3
 	#$spriteContainer.get_children()[sprite_choice].show()
@@ -51,6 +52,7 @@ func _process(delta):
 	
 	if Input.is_action_pressed("burn") and inside == true:
 		change_state()
+		
 	if started == 0:
 		
 		MovePos = initialMovePos(MovePos)
@@ -126,23 +128,28 @@ func change_state():
 	
 func _on_Area2D_mouse_entered():
 	inside = true
-	get_parent().get_zoomLoc(global_position)
+	get_parent().get_parent().get_zoomLoc(global_position)
 
 
 func _on_Area2D_mouse_exited():
 	inside = false
-	get_parent().get_zoomLoc(Vector2(-1000,-1000))
+	get_parent().get_parent().get_zoomLoc(Vector2(-1000,-1000))
 
 
 func _on_hit_mouse_entered():
-	if get_parent().clicked():
+	if get_parent().get_parent().clicked():
 		start_death()
+		$fire.play()
 
 func start_death():
 	$Particles2D.emitting = true
 	$Timer.start()
 
 func _on_Timer_timeout():
-	get_parent().spawnAsh(global_position,1)
+	get_parent().get_parent().spawnAsh(global_position,1)
+	Globals.stop_squeak()
+	Globals.fish_position = 0
 	queue_free()
 	
+func reset_pos():
+	Globals.fish_position = 0

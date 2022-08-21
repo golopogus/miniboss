@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Character Voices_Electrican.mp3-7bad56d359b7abe8e993
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

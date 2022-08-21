@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Character Voices_Denty (Fixed).mp3-2a9983dc4be671e7f
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
