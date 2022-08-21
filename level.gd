@@ -17,6 +17,7 @@ func _ready():
 	Globals.play_calm(0)
 	$spawner.start()
 	$first.start()
+	Globals.get_node('menu').stop()
 	
 func _process(delta):
 
@@ -233,3 +234,7 @@ func find_enemy(pos):
 				Globals.play_bear(Globals.bear_position)
 			
 	
+
+
+func _on_home_pressed():
+	Globals.go_home()

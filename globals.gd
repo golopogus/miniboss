@@ -5,7 +5,8 @@ var voice_playing = false
 var corn_position = 0
 var fish_position = 0
 var bear_position = 0
-
+func _ready():
+	$menu.play()
 func play_calm(pos):
 	$calm.play(pos)
 func stop_calm():
@@ -51,6 +52,13 @@ func stop_squeak():
 	
 func start_game():
 	get_tree().change_scene("res://level.tscn")
+func go_home():
+	get_tree().change_scene("res://home.tscn")
+	$calm.stop()
+	if $menu.playing == false:
+		$menu.play()
+func go_instruct():
+	get_tree().change_scene("res://instruct.tscn")
 	
 	
 

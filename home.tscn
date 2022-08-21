@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://pics/cover.png" type="Texture" id=1]
 [ext_resource path="res://home.gd" type="Script" id=2]
-[ext_resource path="res://sounds/Menu MIDI (Fixed).wav" type="AudioStream" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -52,10 +51,6 @@ custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = -7.0
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="instruct" to="." method="_on_instruct_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://pics/hand.png" type="Texture" id=1]
 [ext_resource path="res://level.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://SFX MINIBOSS/SFX MINIBOSS_Fire_Crackle.wav" type="AudioStream" id=5]
 [ext_resource path="res://SFX MINIBOSS/SFX MINIBOSS_Lens Swoop_2.wav" type="AudioStream" id=6]
 [ext_resource path="res://SFX MINIBOSS/SFX MINIBOSS_Lens Swoop_1.wav" type="AudioStream" id=7]
+[ext_resource path="res://pics/exit.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -82,6 +83,16 @@ angular_velocity = 459.13
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 10.0
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
 
 [node name="level" type="Node2D"]
 script = ExtResource( 2 )
@@ -317,11 +328,27 @@ pitch_scale = 2.7
 
 [node name="enemyContainer" type="Node2D" parent="."]
 
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+texture = ExtResource( 8 )
+
 [node name="out" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
 [node name="in" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
+[node name="home" type="Button" parent="."]
+margin_left = 914.0
+margin_top = 549.0
+margin_right = 1003.0
+margin_bottom = 593.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+
 [connection signal="timeout" from="first" to="." method="_on_first_timeout"]
 [connection signal="timeout" from="spawner" to="." method="_on_spawner_timeout"]
+[connection signal="pressed" from="home" to="." method="_on_home_pressed"]
